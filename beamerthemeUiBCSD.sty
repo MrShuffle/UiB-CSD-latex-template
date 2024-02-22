@@ -576,7 +576,34 @@
     \end{frame}
 }}
 
-
+\makeatletter
+\gdef\@imgsrcnavigation{}
+\setbeamertemplate{navigation symbols}{%
+	\makebox[\paperwidth]{%
+		\hspace*{1.5em}
+		\@imgsrcnavigation
+		\hfill}%
+}
+\DeclareDocumentCommand \imgsrc { s O {Image credit} +m }{%
+	\IfBooleanTF{#1}{%
+		\def\tempa{off}%
+		\def\tempb{#3}%
+		\ifx\tempa\tempb
+		\gdef\@imgsrcnavigation{}%
+		\else
+		\gdef\@imgsrcnavigation{{\tiny #2:\thinspace #3}}%
+		\fi
+	}{%
+		{\tiny #2:\thinspace #3}%
+	}%
+}
+\defbeamertemplate{navigation symbols}{dim byd}{%
+	\parbox{\paperwidth}{%
+		\hspace*{1.5em}%
+		\@imgsrcnavigation
+		\hfill\par\vskip .5em}}
+\newcommand*\navigationoff{\setbeamertemplate{navigation symbols}[dim byd]{}}
+\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
