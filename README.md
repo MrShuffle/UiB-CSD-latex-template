@@ -121,3 +121,6 @@ In addition, `UiB` defines these environments:
 * `property`
 * `remark`
 * `remarks`
+
+Command for image credit:
+\imgsrc
