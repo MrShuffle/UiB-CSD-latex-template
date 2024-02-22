@@ -123,4 +123,4 @@ In addition, `UiB` defines these environments:
 * `remarks`
 
 Command for image credit:
-\imgsrc
+'\imgsrc'
